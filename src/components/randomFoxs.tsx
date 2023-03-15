@@ -1,11 +1,11 @@
 import { RefObject, useEffect, useRef, useState } from "react"
+import type { ImgHTMLAttributes } from "react"
 
-type ImageProps = {
-    father:RefObject<HTMLDivElement>,
+interface ImageProps extends ImgHTMLAttributes<HTMLImageElement>{
     url:string
 }
 
-export const RandomFox = ({father,url}:ImageProps): JSX.Element => {
+export const RandomFox = ({url, ...imgProps}:ImageProps): JSX.Element => {
     const node = useRef<HTMLImageElement>(null)
     const [src, setSrc] = useState<string>("https://thumbs.gfycat.com/EthicalHighlevelArthropods-max-1mb.gif"
     )
@@ -27,5 +27,5 @@ export const RandomFox = ({father,url}:ImageProps): JSX.Element => {
         }
     },[])
 
-    return <img ref={node} src={src} className="rounded w-full h-full object-cover" />
+    return <img ref={node} src={src} {...imgProps} />
 }

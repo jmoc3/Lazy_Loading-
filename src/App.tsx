@@ -38,9 +38,9 @@ function App(): JSX.Element{
           <button onClick={newImage} className='text-blue-900 bg-blue-300 w-fit font-bold p-2.5 rounded border-none hover:bg-orange-300 hover:text-orange-900 hover:transition-all'>Display</button>
           <div ref={fatherDiv} className="imagesContainer grid grid-cols-4 w-full overflow-y-auto">
             { 
-            foxImages.map((foxImage,index)=>(
+            foxImages.map((foxImage)=>(
               <div className="imageContainer w-full h-52 overflow-hidden " key={foxImage.id}>
-                  <RandomFox father={fatherDiv} url={foxImage.url} />
+                  <RandomFox className="rounded w-full h-full object-cover" url={foxImage.url} />
                 </div>
               ))}
           </div>
